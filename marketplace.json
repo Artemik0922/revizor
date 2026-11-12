@@ -1,0 +1,19 @@
+{
+  "name": "revizor",
+  "owner": { "name": "Artemik0922" },
+  "plugins": [
+    {
+      "name": "revizor",
+      "source": "./revizor",
+      "version": "0.5.0",
+      "description": "Self-verifying coding loop: auto mode, post-edit checks, stop-time tests, guard, /ship gate, /audit, /polish, /trend, /doctor, /dashboard",
+      "displayName": "Revizor",
+      "displayName_i18n": { "ru-RU": "Ревизор" },
+      "description_i18n": {
+        "ru-RU": "Самопроверяющийся цикл кодинга: авто-режим, мгновенные проверки после правок, тесты при остановке, guard, release-gate /ship, аудит /audit, доведение до идеала /polish, тренд /trend, медосмотр /doctor, дашборд /dashboard.",
+        "en-US": "Self-verifying coding loop: auto mode, instant post-edit checks, tests when the agent stops, edit guard, /ship release gate, /audit diagnostics, /polish refactor-to-ideal, /trend metrics, /doctor health check, /dashboard."
+      },
+      "category": "developer-tools"
+    }
+  ]
+}

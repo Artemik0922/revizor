@@ -1,0 +1,9 @@
+{
+  "name": "revizor",
+  "version": "0.5.0",
+  "description": "Self-verifying coding loop: instant post-edit checks, tests when the agent stops, auto mode, edit guard, error brain, /ship release gate, /audit diagnostics, /polish refactor-to-ideal, /trend metrics, /doctor health check, /dashboard. Configured per project via revizor.json.",
+  "author": { "name": "Artemik0922" },
+  "skills": "./skills",
+  "commands": "./commands",
+  "hooks": "./hooks/hooks.json"
+}

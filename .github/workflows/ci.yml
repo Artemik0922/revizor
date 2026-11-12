@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: ${{ matrix.os }} · node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [20, 24]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Syntax check
+        working-directory: revizor
+        shell: bash
+        run: for f in scripts/*.js; do node --check "$f"; done
+
+      - name: Tests
+        working-directory: revizor
+        run: npm test
+
+      - name: Manifest validation
+        working-directory: revizor
+        shell: bash
+        run: |
+          node -e '
+            const fs = require("fs");
+            const man = JSON.parse(fs.readFileSync(".zcode-plugin/plugin.json", "utf8"));
+            const hooks = JSON.parse(fs.readFileSync("hooks/hooks.json", "utf8"));
+            const mk = JSON.parse(fs.readFileSync("../marketplace.json", "utf8"));
+            const need = ["skills/revizor/SKILL.md","hooks/hooks.json","scripts/revizor-lib.js"];
+            for (const n of need) if (!fs.existsSync(n)) throw new Error("missing " + n);
+            if (man.name !== "revizor") throw new Error("bad name");
+            const entry = mk.plugins.find(p => p.name === man.name);
+            if (!entry || entry.version !== man.version) throw new Error("marketplace version mismatch");
+            const events = Object.keys(hooks.hooks);
+            for (const e of events) for (const m of hooks.hooks[e]) for (const h of m.hooks) {
+              if (!h.command.includes("${CLAUDE_PLUGIN_ROOT}")) throw new Error("hook without plugin root");
+            }
+            for (const f of fs.readdirSync("commands")) if (!f.endsWith(".md")) throw new Error("bad command file " + f);
+            console.log("manifest ok: " + man.version + " · events: " + events.join(","));
+          '
