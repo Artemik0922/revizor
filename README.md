@@ -40,20 +40,20 @@ context — where it can still act on it.
 
 ```mermaid
 flowchart LR
-    A[✏️ Agent edits a file] --> B{⚡ Fast lane}
-    B -- broken --> C[🛡️ Feedback<br/>in the same turn]
+    A["Agent edits a file"] --> B{"Fast lane"}
+    B -- "broken" --> C["Feedback in the same turn"]
     C --> A
-    B -- clean --> D[🤖 Agent stops]
-    D --> E{🧪 Test lane}
-    E -- red --> C
-    E -- green --> F[✅ Done<br/>+ dashboard updated]
+    B -- "clean" --> D["Agent stops"]
+    D --> E{"Test lane"}
+    E -- "red" --> C
+    E -- "green" --> F["Done + dashboard updated"]
 
-    style A fill:#eef2ff,stroke:#6366f1,color:#1e1b4b
-    style B fill:#fef3c7,stroke:#d97706,color:#451a03
-    style C fill:#fee2e2,stroke:#dc2626,color:#450a0a
-    style D fill:#eef2ff,stroke:#6366f1,color:#1e1b4b
-    style E fill:#fef3c7,stroke:#d97706,color:#451a03
-    style F fill:#dcfce7,stroke:#16a34a,color:#052e16
+    style A fill:#eef2ff,stroke:#6366f1
+    style B fill:#fef3c7,stroke:#d97706
+    style C fill:#fee2e2,stroke:#dc2626
+    style D fill:#eef2ff,stroke:#6366f1
+    style E fill:#fef3c7,stroke:#d97706
+    style F fill:#dcfce7,stroke:#16a34a
 ```
 
 </div>

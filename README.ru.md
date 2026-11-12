@@ -40,20 +40,20 @@
 
 ```mermaid
 flowchart LR
-    A[✏️ Агент правит файл] --> B{⚡ Полоса fast}
-    B -- ошибка --> C[🛡️ Фидбек<br/>в том же ходе]
+    A["Агент правит файл"] --> B{"Полоса fast"}
+    B -- "ошибка" --> C["Фидбек в том же ходе"]
     C --> A
-    B -- чисто --> D[🤖 Агент остановился]
-    D --> E{🧪 Полоса test}
-    E -- красный --> C
-    E -- зелёный --> F[✅ Готово<br/>+ дашборд обновлён]
+    B -- "чисто" --> D["Агент остановился"]
+    D --> E{"Полоса test"}
+    E -- "красный" --> C
+    E -- "зелёный" --> F["Готово + дашборд обновлён"]
 
-    style A fill:#eef2ff,stroke:#6366f1,color:#1e1b4b
-    style B fill:#fef3c7,stroke:#d97706,color:#451a03
-    style C fill:#fee2e2,stroke:#dc2626,color:#450a0a
-    style D fill:#eef2ff,stroke:#6366f1,color:#1e1b4b
-    style E fill:#fef3c7,stroke:#d97706,color:#451a03
-    style F fill:#dcfce7,stroke:#16a34a,color:#052e16
+    style A fill:#eef2ff,stroke:#6366f1
+    style B fill:#fef3c7,stroke:#d97706
+    style C fill:#fee2e2,stroke:#dc2626
+    style D fill:#eef2ff,stroke:#6366f1
+    style E fill:#fef3c7,stroke:#d97706
+    style F fill:#dcfce7,stroke:#16a34a
 ```
 
 </div>
