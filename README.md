@@ -38,23 +38,7 @@ context — where it can still act on it.
 
 <div align="center">
 
-```mermaid
-flowchart LR
-    A["Agent edits a file"] --> B{"Fast lane"}
-    B -- "broken" --> C["Feedback in the same turn"]
-    C --> A
-    B -- "clean" --> D["Agent stops"]
-    D --> E{"Test lane"}
-    E -- "red" --> C
-    E -- "green" --> F["Done + dashboard updated"]
-
-    style A fill:#eef2ff,stroke:#6366f1
-    style B fill:#fef3c7,stroke:#d97706
-    style C fill:#fee2e2,stroke:#dc2626
-    style D fill:#eef2ff,stroke:#6366f1
-    style E fill:#fef3c7,stroke:#d97706
-    style F fill:#dcfce7,stroke:#16a34a
-```
+<img src="docs/flow-en.svg" alt="Revizor loop: agent edits a file → fast lane → feedback in the same turn; agent stops → test lane → done" width="100%">
 
 </div>
 

@@ -38,23 +38,7 @@
 
 <div align="center">
 
-```mermaid
-flowchart LR
-    A["Агент правит файл"] --> B{"Полоса fast"}
-    B -- "ошибка" --> C["Фидбек в том же ходе"]
-    C --> A
-    B -- "чисто" --> D["Агент остановился"]
-    D --> E{"Полоса test"}
-    E -- "красный" --> C
-    E -- "зелёный" --> F["Готово + дашборд обновлён"]
-
-    style A fill:#eef2ff,stroke:#6366f1
-    style B fill:#fef3c7,stroke:#d97706
-    style C fill:#fee2e2,stroke:#dc2626
-    style D fill:#eef2ff,stroke:#6366f1
-    style E fill:#fef3c7,stroke:#d97706
-    style F fill:#dcfce7,stroke:#16a34a
-```
+<img src="docs/flow-ru.svg" alt="Цикл Ревизора: агент правит файл → полоса fast → фидбек в том же ходе; агент остановился → полоса test → готово" width="100%">
 
 </div>
 
